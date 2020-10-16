@@ -56,12 +56,17 @@ class ParkingBoyTest {
     public void should_not_return_car_when_fetching_a_car_given_wrong_ticket(){
         //given
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
-        
+
         //when
-        Car noCarFetched = parkingBoy.fetchCar(new ParkingTicket());
-        
-        //then
-        assertNotEquals(null, noCarFetched);
+        UnrecognizedParkingTicketException thrown = assertThrows(
+                UnrecognizedParkingTicketException.class,
+                () -> parkingBoy.fetchCar(new ParkingTicket()),
+                "Expected park() to throw, but it didn't"
+        );
+
+        // then
+        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+
     }
 
     @Test
@@ -69,11 +74,16 @@ class ParkingBoyTest {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
 
-        //when
-        Car noCarFetched = parkingBoy.fetchCar(null);
 
-        //then
-        assertEquals(null, noCarFetched);
+        //when
+        UnrecognizedParkingTicketException thrown = assertThrows(
+                UnrecognizedParkingTicketException.class,
+                () -> parkingBoy.fetchCar(null),
+                "Expected park() to throw, but it didn't"
+        );
+
+        // then
+        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
 
     }
 
@@ -86,10 +96,16 @@ class ParkingBoyTest {
 
         // when
         Car carFetched = parkingBoy.fetchCar(parkingTicket);
-        Car noCarFetched = parkingBoy.fetchCar(parkingTicket);
+        //when
+        UnrecognizedParkingTicketException thrown = assertThrows(
+                UnrecognizedParkingTicketException.class,
+                () -> parkingBoy.fetchCar(parkingTicket),
+                "Expected park() to throw, but it didn't"
+        );
 
         // then
-        assertEquals(null, noCarFetched);
+        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+
     }
 
     @Test
@@ -97,7 +113,7 @@ class ParkingBoyTest {
         //given
         Car car = new Car();
         Car car1 = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
         ParkingTicket parkingTicket1 = parkingBoy.park(car);
         ParkingTicket parkingTicket2 = parkingBoy.park(car1);
 
@@ -107,5 +123,29 @@ class ParkingBoyTest {
         //then
         assertNull(isFull);
     }
+
+    @Test
+    public void should_not_fetch_car_when_fetching_given_wrong_ticket(){
+    
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+        Car carFetched = parkingBoy.fetchCar(parkingTicket);
+
+        
+        //when
+        UnrecognizedParkingTicketException thrown = assertThrows(
+                UnrecognizedParkingTicketException.class,
+                () -> parkingBoy.fetchCar(parkingTicket),
+                "Expected park() to throw, but it didn't"
+        );
+
+        // then
+        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+
+    }
+
+
     
 }
