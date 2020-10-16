@@ -15,4 +15,8 @@ public class ParkingBoy {
     public Car fetchCar(ParkingTicket parkingTicket) {
         return parkingLot.fetchCar(parkingTicket);
     }
+
+    public boolean checkCapacity() {
+        return parkingLot.checkCapacity();
+    }
 }
