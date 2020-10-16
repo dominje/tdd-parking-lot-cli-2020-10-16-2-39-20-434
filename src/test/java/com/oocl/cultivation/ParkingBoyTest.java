@@ -63,10 +63,33 @@ class ParkingBoyTest {
         //then
         assertNotEquals(null, noCarFetched);
     }
-    
 
+    @Test
+    public void should_not_return_a_car_when_fetching_car_given_no_ticket(){
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
 
+        //when
+        Car noCarFetched = parkingBoy.fetchCar(null);
 
-    
-    
+        //then
+        assertEquals(null, noCarFetched);
+
+    }
+
+    @Test
+    public void should_not_return_a_car_when_fetching_car_given_used_ticket(){
+        // given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+
+        // when
+        Car carFetched = parkingBoy.fetchCar(parkingTicket);
+        Car noCarFetched = parkingBoy.fetchCar(parkingTicket);
+
+        // then
+        assertEquals(null, noCarFetched);
+    }
+
 }
