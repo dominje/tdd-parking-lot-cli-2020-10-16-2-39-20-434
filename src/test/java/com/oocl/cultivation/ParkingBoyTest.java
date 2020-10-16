@@ -115,13 +115,17 @@ class ParkingBoyTest {
         Car car1 = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
         ParkingTicket parkingTicket1 = parkingBoy.park(car);
-        ParkingTicket parkingTicket2 = parkingBoy.park(car1);
 
         //when
-        ParkingTicket isFull = parkingBoy.park(car1);
-        
+        ParkingLotFullException thrown = assertThrows(
+                ParkingLotFullException.class,
+                () -> parkingBoy.park(car1),
+                "Expected fetch() to throw, but it didn't"
+        );
+
         //then
-        assertNull(isFull);
+        assertTrue(thrown.getMessage().contains("Not enough position."));
+
     }
 
     @Test
@@ -161,10 +165,27 @@ class ParkingBoyTest {
         );
 
         // then
-            assertTrue(thrown.getMessage().contains("Please provide your parking ticket."));
+        assertTrue(thrown.getMessage().contains("Please provide your parking ticket."));
     }
 
+    @Test
+    public void should_throw_an_exception_when_parking_a_car_given_parking_lot_is_full(){
+    
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+        
+        //when
+        ParkingLotFullException thrown = assertThrows(
+                ParkingLotFullException.class,
+                () -> parkingBoy.park(car),
+                "Expected fetch() to throw, but it didn't"
+        );
 
+        //then
+        assertTrue(thrown.getMessage().contains("Not enough position."));
+    }
 
     
 }
