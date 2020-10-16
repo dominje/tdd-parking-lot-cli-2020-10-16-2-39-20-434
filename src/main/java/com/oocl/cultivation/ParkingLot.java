@@ -31,8 +31,8 @@ public class ParkingLot {
             Car validTicket = parkingTicketCarMap.get(parkingTicket);
             parkingTicketCarMap.remove(parkingTicket);
             return validTicket;
-        }
-        throw new UnrecognizedParkingTicketException("InvalidParkingTicket!");
+        }else if(parkingTicket == null){throw new NoParkingTicketException("Please provide your parking ticket.");}
+        throw new UnrecognizedParkingTicketException("Invalid Parking Ticket!");
     }
 
     public boolean checkCapacity() {
