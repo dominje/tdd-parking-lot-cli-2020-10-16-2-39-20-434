@@ -5,26 +5,37 @@ import java.util.Map;
 
 public class ParkingLot {
 
-    public static final int CAPACITY = 1;
+    private static int parkingLotCapacity;
     private Map<ParkingTicket, Car> parkingTicketCarMap = new HashMap<>();
 
-    public ParkingTicket park(Car car) {
+    public ParkingLot(int parkingLotCapacity) {
+        this.parkingLotCapacity = parkingLotCapacity;
+    }
+
+    public ParkingLot() {
+        parkingLotCapacity = 10;
+    }
+
+
+    public ParkingTicket park(Car car){
         if(checkCapacity()) {
             ParkingTicket parkingTicket = new ParkingTicket();
             parkingTicketCarMap.put(parkingTicket, car);
             return parkingTicket;
         }
-            return null;
+        return null;
     }
 
     public Car fetchCar(ParkingTicket parkingTicket){
         if(parkingTicketCarMap.containsKey(parkingTicket)){
-            return null;
+            Car validTicket = parkingTicketCarMap.get(parkingTicket);
+            parkingTicketCarMap.remove(parkingTicket);
+            return validTicket;
         }
-        return parkingTicketCarMap.get(parkingTicket);
+        throw new UnrecognizedParkingTicketException("InvalidParkingTicket!");
     }
 
     public boolean checkCapacity() {
-        return parkingTicketCarMap.size() <= CAPACITY;
+        return parkingTicketCarMap.size() < parkingLotCapacity;
     }
 }
