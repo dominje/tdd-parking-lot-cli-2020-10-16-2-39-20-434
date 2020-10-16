@@ -96,14 +96,16 @@ class ParkingBoyTest {
     public void should_be_failed_parking_when_parking_a_car_given_that_the_capacity_is_only_one_and_is_taken(){
         //given
         Car car = new Car();
+        Car car1 = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
-        ParkingTicket parkingTicket = parkingBoy.park(car);
+        ParkingTicket parkingTicket1 = parkingBoy.park(car);
+        ParkingTicket parkingTicket2 = parkingBoy.park(car1);
 
         //when
-        boolean isFull = parkingBoy.checkCapacity();
+        ParkingTicket isFull = parkingBoy.park(car1);
         
         //then
-        assertEquals(true, isFull);
+        assertNull(isFull);
     }
     
 }
