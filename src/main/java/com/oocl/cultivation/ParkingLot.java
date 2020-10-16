@@ -23,7 +23,8 @@ public class ParkingLot {
             parkingTicketCarMap.put(parkingTicket, car);
             return parkingTicket;
         }
-        return null;
+        throw new ParkingLotFullException("Not enough position.");
+
     }
 
     public Car fetchCar(ParkingTicket parkingTicket){
