@@ -1,4 +1,4 @@
-package com.oocl.cultivation;
+package com.oocl.cultivation.exception;
 
 public class UnrecognizedParkingTicketException extends RuntimeException {
     public UnrecognizedParkingTicketException(String message) {

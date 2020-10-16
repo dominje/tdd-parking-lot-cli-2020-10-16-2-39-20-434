@@ -1,4 +1,4 @@
-package com.oocl.cultivation;
+package com.oocl.cultivation.exception;
 
 public class ParkingLotFullException extends RuntimeException {
     public ParkingLotFullException(String message) {
