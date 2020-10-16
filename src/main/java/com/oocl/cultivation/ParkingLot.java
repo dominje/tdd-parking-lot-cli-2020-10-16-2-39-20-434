@@ -14,6 +14,9 @@ public class ParkingLot {
     }
 
     public Car fetchCar(ParkingTicket parkingTicket){
+        if(parkingTicketCarMap.containsKey(parkingTicket)){
+            return null;
+        }
         return parkingTicketCarMap.get(parkingTicket);
     }
 }
