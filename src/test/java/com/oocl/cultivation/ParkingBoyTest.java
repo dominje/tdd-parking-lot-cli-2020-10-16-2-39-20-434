@@ -76,14 +76,14 @@ class ParkingBoyTest {
 
 
         //when
-        UnrecognizedParkingTicketException thrown = assertThrows(
-                UnrecognizedParkingTicketException.class,
+        NoParkingTicketException thrown = assertThrows(
+                NoParkingTicketException.class,
                 () -> parkingBoy.fetchCar(null),
                 "Expected park() to throw, but it didn't"
         );
 
         // then
-        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+        assertTrue(thrown.getMessage().contains("Please provide your parking ticket."));
 
     }
 
@@ -125,7 +125,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_not_fetch_car_when_fetching_given_wrong_ticket(){
+    public void should_throw_an_exception_car_when_fetching_given_wrong_ticket(){
     
         //given
         Car car = new Car();
@@ -138,13 +138,32 @@ class ParkingBoyTest {
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(parkingTicket),
-                "Expected park() to throw, but it didn't"
+                "Expected fetch() to throw, but it didn't"
         );
 
         // then
         assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
 
     }
+
+    @Test
+    public void should_throw_an_exception_car_when_fetching_given_no_ticket(){
+
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+
+        //when
+        NoParkingTicketException thrown = assertThrows(
+                NoParkingTicketException.class,
+                () -> parkingBoy.fetchCar(null),
+                "Expected fetch() to throw, but it didn't"
+        );
+
+        // then
+            assertTrue(thrown.getMessage().contains("Please provide your parking ticket."));
+    }
+
 
 
     
