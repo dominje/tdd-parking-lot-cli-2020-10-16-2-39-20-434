@@ -12,4 +12,8 @@ public class ParkingLot {
         parkingTicketCarMap.put(parkingTicket, car);
         return parkingTicket;
     }
+
+    public Car fetchCar(ParkingTicket parkingTicket){
+        return parkingTicketCarMap.get(parkingTicket);
+    }
 }
