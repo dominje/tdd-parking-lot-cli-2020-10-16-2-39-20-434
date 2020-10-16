@@ -13,7 +13,7 @@ public class ParkingBoy {
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {
-        return parkingLot.fetchCar(parkingTicket);
+        return parkingLot.validateParkingTicket(parkingTicket);
     }
 
     public boolean checkCapacity() {
