@@ -1,15 +1,13 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.exception.ParkingLotFullException;
-
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
 public class SmartParkingBoy extends ParkingBoy {
 
-    private List<ParkingLot> parkingLots;
+    private final List<ParkingLot> parkingLots;
 
     public SmartParkingBoy(List<ParkingLot> parkingLot) {
         super(parkingLot);
