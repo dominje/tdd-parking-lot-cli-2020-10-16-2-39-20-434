@@ -52,12 +52,20 @@ public class ParkingLot {
         return parkingTicketCarMap.size() < parkingLotCapacity;
     }
 
-    public static int getParkingLotCapacity() {
+    public int getParkingLotCapacity() {
         return parkingLotCapacity;
+    }
+
+    public int getPositionsAvailable(){
+        return  parkingLotCapacity - parkingTicketCarMap.size();
     }
 
     public int getCurrentParkingLotCapacity(){
         return parkingTicketCarMap.size();
+    }
+
+    public int getPositionRate() {
+        return getPositionsAvailable() / getParkingLotCapacity();
     }
 
 }
