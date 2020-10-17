@@ -7,11 +7,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class SmartParkingBoy {
+public class SmartParkingBoy extends ParkingBoy {
 
     private List<ParkingLot> parkingLots;
 
     public SmartParkingBoy(List<ParkingLot> parkingLot) {
+        super(parkingLot);
         this.parkingLots = parkingLot;
     }
 
@@ -22,13 +23,6 @@ public class SmartParkingBoy {
             return parkingLot.park(car);
         }
         throw new ParkingLotFullException("Not enough position.");
-    }
-
-    public Car fetchCar(ParkingTicket parkingTicket) {
-        for (ParkingLot parkingLot : parkingLots) {
-            return parkingLot.validateParkingTicket(parkingTicket);
-        }
-        return null;
     }
 
 }

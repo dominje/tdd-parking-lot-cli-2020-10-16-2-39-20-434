@@ -16,8 +16,10 @@ class ParkingBoyTest {
     public void should_return_parking_ticket_when_parking_boy_parks_car_given_car(){
         // given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
-
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         //when
         ParkingTicket parkingTicket = parkingBoy.park(car);
 
@@ -29,7 +31,10 @@ class ParkingBoyTest {
     public void should_return_correct_parked_car_when_parking_boy_receive_parking_ticket_given_parking_ticket(){
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket = parkingBoy.park(car);
 
         //when
@@ -45,7 +50,10 @@ class ParkingBoyTest {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket1 = parkingBoy.park(car1);
         ParkingTicket parkingTicket2 = parkingBoy.park(car2);
         
@@ -61,7 +69,10 @@ class ParkingBoyTest {
     @Test
     public void should_not_return_car_when_fetching_a_car_given_wrong_ticket(){
         //given
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         UnrecognizedParkingTicketException thrown = assertThrows(
@@ -78,7 +89,10 @@ class ParkingBoyTest {
     @Test
     public void should_not_return_a_car_when_fetching_car_given_no_ticket(){
         //given
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
 
         //when
@@ -97,7 +111,10 @@ class ParkingBoyTest {
     public void should_not_return_a_car_when_fetching_car_given_used_ticket(){
         // given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket = parkingBoy.park(car);
 
         // when
@@ -119,7 +136,11 @@ class ParkingBoyTest {
         //given
         Car car = new Car();
         Car car1 = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ParkingLot parkingLot = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket1 = parkingBoy.park(car);
 
         //when
@@ -139,7 +160,10 @@ class ParkingBoyTest {
     
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket = parkingBoy.park(car);
         Car carFetched = parkingBoy.fetchCar(parkingTicket);
 
@@ -161,7 +185,10 @@ class ParkingBoyTest {
 
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         NoParkingTicketException thrown = assertThrows(
@@ -179,7 +206,10 @@ class ParkingBoyTest {
     
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ParkingLot parkingLot = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket = parkingBoy.park(car);
         
         //when
@@ -198,12 +228,17 @@ class ParkingBoyTest {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
-
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ParkingLot parkingLot = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         ParkingTicket parkingTicket1 = parkingBoy.park(car1);
-        parkingBoy = new ParkingBoy(new ParkingLot());
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots2 = new ArrayList<>();
+        parkingLots2.add(parkingLot2);
+        parkingBoy = new ParkingBoy(parkingLots2);
         ParkingTicket parkingTicket2 =parkingBoy.park(car2);
 
         //then
