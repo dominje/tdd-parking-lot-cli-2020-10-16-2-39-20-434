@@ -1,13 +1,11 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.exception.ParkingLotFullException;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
 
-    private List<ParkingLot> parkingLots;
+    private final List<ParkingLot> parkingLots;
 
     public ParkingBoy(List<ParkingLot> parkingLot) {
         this.parkingLots = parkingLot;
@@ -19,7 +17,6 @@ public class ParkingBoy {
             if(parkingLot.checkCapacity()){
                 return parkingLot.park(car);
             }
-            continue;
         }
         throw new ParkingLotFullException("Not enough position.");
     }
