@@ -5,6 +5,9 @@ import com.oocl.cultivation.exception.ParkingLotFullException;
 import com.oocl.cultivation.exception.UnrecognizedParkingTicketException;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyTest {
@@ -188,6 +191,25 @@ class ParkingBoyTest {
 
         //then
         assertTrue(thrown.getMessage().contains("Not enough position."));
+    }
+    
+    @Test
+    public void should_park_sequentially_when_parking_given_two_parking_lots_first_one_is_full() {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
+
+        //when
+        ParkingTicket parkingTicket1 = parkingBoy.park(car1);
+        new ParkingBoy(new ParkingLot());
+        ParkingTicket parkingTicket2 =parkingBoy.park(car2);
+
+        //then
+        assertNotNull(parkingTicket1);
+        assertNotNull(parkingTicket2);
+
     }
 
     
