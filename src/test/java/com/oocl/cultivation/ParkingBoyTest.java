@@ -203,7 +203,7 @@ class ParkingBoyTest {
 
         //when
         ParkingTicket parkingTicket1 = parkingBoy.park(car1);
-        new ParkingBoy(new ParkingLot());
+        parkingBoy = new ParkingBoy(new ParkingLot());
         ParkingTicket parkingTicket2 =parkingBoy.park(car2);
 
         //then
