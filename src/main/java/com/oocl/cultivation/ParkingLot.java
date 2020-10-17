@@ -51,4 +51,13 @@ public class ParkingLot {
     public boolean checkCapacity() {
         return parkingTicketCarMap.size() < parkingLotCapacity;
     }
+
+    public static int getParkingLotCapacity() {
+        return parkingLotCapacity;
+    }
+
+    public int getCurrentParkingLotCapacity(){
+        return parkingTicketCarMap.size();
+    }
+
 }
