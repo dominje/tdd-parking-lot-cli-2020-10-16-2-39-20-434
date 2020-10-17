@@ -67,7 +67,7 @@ class ParkingBoyTest {
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(new ParkingTicket()),
-                "Expected park() to throw, but it didn't"
+                "Expected fetchCar() to throw, but it didn't"
         );
 
         // then
@@ -85,7 +85,7 @@ class ParkingBoyTest {
         NoParkingTicketException thrown = assertThrows(
                 NoParkingTicketException.class,
                 () -> parkingBoy.fetchCar(null),
-                "Expected park() to throw, but it didn't"
+                "Expected fetchCar() to throw, but it didn't"
         );
 
         // then
@@ -106,7 +106,7 @@ class ParkingBoyTest {
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(parkingTicket),
-                "Expected park() to throw, but it didn't"
+                "Expected fetchCar() to throw, but it didn't"
         );
 
         // then
@@ -148,7 +148,7 @@ class ParkingBoyTest {
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(parkingTicket),
-                "Expected fetch() to throw, but it didn't"
+                "Expected fetchCar() to throw, but it didn't"
         );
 
         // then
@@ -167,7 +167,7 @@ class ParkingBoyTest {
         NoParkingTicketException thrown = assertThrows(
                 NoParkingTicketException.class,
                 () -> parkingBoy.fetchCar(null),
-                "Expected fetch() to throw, but it didn't"
+                "Expected fetchCar() to throw, but it didn't"
         );
 
         // then

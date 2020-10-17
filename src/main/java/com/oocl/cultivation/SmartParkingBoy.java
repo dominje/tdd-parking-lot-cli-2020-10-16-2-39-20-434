@@ -16,10 +16,10 @@ public class SmartParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        ParkingLot parkingLott = parkingLots.stream()
+        ParkingLot parkingLot = parkingLots.stream()
                         .min(Comparator.comparing(ParkingLot::getCurrentParkingLotCapacity)).orElse(null);
-        if (Objects.nonNull(parkingLott)) {
-            return parkingLott.park(car);
+        if (Objects.nonNull(parkingLot)) {
+            return parkingLot.park(car);
         }
         throw new ParkingLotFullException("Not enough position.");
     }

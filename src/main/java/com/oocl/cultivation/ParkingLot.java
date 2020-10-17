@@ -6,6 +6,7 @@ import com.oocl.cultivation.exception.UnrecognizedParkingTicketException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ParkingLot {
 
@@ -36,7 +37,7 @@ public class ParkingLot {
     public Car validateParkingTicket(ParkingTicket parkingTicket){
         if(parkingTicketCarMap.containsKey(parkingTicket)){
             return fetchCar(parkingTicket);
-        }else if(parkingTicket == null){
+        }else if(Objects.isNull(parkingTicket)){
             throw new NoParkingTicketException("Please provide your parking ticket.");
         }
             throw new UnrecognizedParkingTicketException("Invalid Parking Ticket!");
