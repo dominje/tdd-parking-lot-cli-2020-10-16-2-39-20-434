@@ -24,7 +24,7 @@ public class ParkingLot {
         if(checkCapacity()) {
             return getParkingTicket(car);
         }
-            throw new ParkingLotFullException("Not enough position.");
+        return null;
     }
 
     private ParkingTicket getParkingTicket(Car car) {
