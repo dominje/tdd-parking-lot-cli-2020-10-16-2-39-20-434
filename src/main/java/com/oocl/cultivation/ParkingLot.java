@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class ParkingLot {
 
-    private static int parkingLotCapacity;
+    private int parkingLotCapacity;
     private Map<ParkingTicket, Car> parkingTicketCarMap = new HashMap<>();
 
     public ParkingLot(int parkingLotCapacity) {
