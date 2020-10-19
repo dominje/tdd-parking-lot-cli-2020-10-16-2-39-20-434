@@ -1,6 +1,6 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.exception.ParkingBoyNotInManagementListException;
+import exception.ParkingBoyNotInManagementListException;
 
 import java.util.ArrayList;
 import java.util.List;

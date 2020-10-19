@@ -1,9 +1,9 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.exception.NoParkingTicketException;
-import com.oocl.cultivation.exception.ParkingBoyNotInManagementListException;
-import com.oocl.cultivation.exception.ParkingLotFullException;
-import com.oocl.cultivation.exception.UnrecognizedParkingTicketException;
+import exception.NoParkingTicketException;
+import exception.ParkingBoyNotInManagementListException;
+import exception.ParkingLotFullException;
+import exception.UnrecognizedParkingTicketException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

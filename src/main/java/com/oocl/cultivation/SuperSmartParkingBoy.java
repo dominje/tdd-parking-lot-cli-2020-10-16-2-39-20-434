@@ -1,6 +1,6 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.exception.ParkingLotFullException;
+import exception.ParkingLotFullException;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.exception.NoParkingTicketException;
-import com.oocl.cultivation.exception.UnrecognizedParkingTicketException;
+import exception.NoParkingTicketException;
+import exception.UnrecognizedParkingTicketException;
 
 import java.util.HashMap;
 import java.util.Map;
