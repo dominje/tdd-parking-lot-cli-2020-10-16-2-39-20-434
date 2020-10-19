@@ -78,8 +78,7 @@ class ParkingBoyTest {
         //when
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
-                () -> parkingBoy.fetchCar(new ParkingTicket()),
-                "Expected fetchCar() to throw, but it didn't"
+                () -> parkingBoy.fetchCar(new ParkingTicket())
         );
 
         // then
@@ -99,8 +98,7 @@ class ParkingBoyTest {
         //when
         NoParkingTicketException thrown = assertThrows(
                 NoParkingTicketException.class,
-                () -> parkingBoy.fetchCar(null),
-                "Expected fetchCar() to throw, but it didn't"
+                () -> parkingBoy.fetchCar(null)
         );
 
         // then
@@ -123,8 +121,7 @@ class ParkingBoyTest {
         //when
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
-                () -> parkingBoy.fetchCar(parkingTicket),
-                "Expected fetchCar() to throw, but it didn't"
+                () -> parkingBoy.fetchCar(parkingTicket)
         );
 
         // then
@@ -147,8 +144,7 @@ class ParkingBoyTest {
         //when
         ParkingLotFullException thrown = assertThrows(
                 ParkingLotFullException.class,
-                () -> parkingBoy.park(car1),
-                "Expected fetch() to throw, but it didn't"
+                () -> parkingBoy.park(car1)
         );
 
         //then
@@ -172,8 +168,7 @@ class ParkingBoyTest {
         //when
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
-                () -> parkingBoy.fetchCar(parkingTicket),
-                "Expected fetchCar() to throw, but it didn't"
+                () -> parkingBoy.fetchCar(parkingTicket)
         );
 
         // then
@@ -193,8 +188,7 @@ class ParkingBoyTest {
         //when
         NoParkingTicketException thrown = assertThrows(
                 NoParkingTicketException.class,
-                () -> parkingBoy.fetchCar(null),
-                "Expected fetchCar() to throw, but it didn't"
+                () -> parkingBoy.fetchCar(null)
         );
 
         // then
@@ -215,8 +209,7 @@ class ParkingBoyTest {
         //when
         ParkingLotFullException thrown = assertThrows(
                 ParkingLotFullException.class,
-                () -> parkingBoy.park(car),
-                "Expected fetch() to throw, but it didn't"
+                () -> parkingBoy.park(car)
         );
 
         //then
@@ -356,8 +349,7 @@ class ParkingBoyTest {
         //when
         ParkingBoyNotInManagementListException thrown = assertThrows(
                 ParkingBoyNotInManagementListException.class,
-                () -> serviceManager.askParkingBoyToParkCar(car, parkingBoy),
-                "Expected fetch() to throw, but it didn't"
+                () -> serviceManager.askParkingBoyToParkCar(car, parkingBoy)
         );
 
         //then
