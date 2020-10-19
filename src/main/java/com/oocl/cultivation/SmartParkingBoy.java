@@ -14,6 +14,7 @@ public class SmartParkingBoy extends ParkingBoy {
         this.parkingLots = parkingLot;
     }
 
+    @Override
     public ParkingTicket park(Car car) {
         ParkingLot parkingLot = parkingLots.stream()
                         .min(Comparator.comparing(ParkingLot::getCurrentParkingLotCapacity)).orElse(null);
