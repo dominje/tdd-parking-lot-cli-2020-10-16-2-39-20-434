@@ -76,13 +76,13 @@ class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
+        // then
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(new ParkingTicket())
         );
 
-        // then
-        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+
 
     }
 
@@ -115,17 +115,15 @@ class ParkingBoyTest {
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket = parkingBoy.park(car);
-
-        // when
         parkingBoy.fetchCar(parkingTicket);
         //when
+        // then
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(parkingTicket)
         );
 
-        // then
-        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+
 
     }
 
@@ -166,13 +164,13 @@ class ParkingBoyTest {
 
         
         //when
+        //then
         UnrecognizedParkingTicketException thrown = assertThrows(
                 UnrecognizedParkingTicketException.class,
                 () -> parkingBoy.fetchCar(parkingTicket)
         );
 
-        // then
-        assertTrue(thrown.getMessage().contains("Unrecognized Parking Ticket!"));
+
 
     }
 
